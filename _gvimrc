@@ -1,0 +1,12 @@
+"display
+"
+color darkblue	"darkbule theme
+set guifont=Consolas:h12:cSHIFTJIS
+
+syntax on
+set title
+set showcmd
+set ruler
+set showmatch
+set matchtime=1
+set laststatus=2
