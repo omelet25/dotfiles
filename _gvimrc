@@ -1,7 +1,24 @@
 "display
 "
+
+"MENUの文字化けを直す
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
+
+"カラースキーム
 color darkblue	"darkbule theme
-set guifont=Consolas:h12:cSHIFTJIS
+
+"font
+"
+
+"fontはローカル環境に従う
+"ファイルが無い場合はMS_Gothic
+set guifont=Consolas:h12
+set guifontwide=MS_Gothic:h12
+if filereadable(expand('~/_vimfont'))
+	source ~/_vimfont
+endif
 
 syntax on
 set title
