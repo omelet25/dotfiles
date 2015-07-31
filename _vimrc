@@ -15,8 +15,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/unite.vim'	" ファイルオープンを便利に
-NeoBundle 'Shougo/neomru.vim'	" Unite.vimで履歴表示
+NeoBundle 'Shougo/unite.vim'		" ファイルオープンを便利に
+NeoBundle 'Shougo/neomru.vim'		" Unite.vimで履歴表示
+NeoBundle 'Shougo/neocomplete.vim'	"補完プラグイン
 
 call neobundle#end()
 
@@ -39,9 +40,8 @@ set number		"行番号表示
 set nobackup	"backupファイル使わない
 set noundofile	"undoファイル使わない
 set noswapfile	"swpファイル使わない
-
 set cmdheight=2	"コマンドラインに使われる行数
-
+set wildmenu wildmode=list:full
 
 "Search
 "
@@ -53,7 +53,7 @@ set wrapscan	"検索をファイルの先頭へループする
 
 "Input
 "
-set cindent			"C言語のインデントに従って自動インデントを行う
+"set cindent			"C言語のインデントに従って自動インデントを行う
 set shiftwidth=4	"行頭での<Tab>の幅
 set tabstop=4		"行頭以外での<Tab>の幅
 set backspace=indent,eol,start
@@ -66,10 +66,16 @@ set listchars=tab:>_,trail:_,eol:$
 
 "Unite.vim setting
 "
-let g:unite_enable_start_insert=1					"入力モード開始
-noremap <C-p> :Unite buffer<CR>						"バッファ
-noremap <C-n> :Unite -buffer-name-=file file<CR>	"ファイル
-noremap <C-z> :Unite file_mru<CR>	"				"最近
+" 入力モードで開始する
+let g:unite_enable_start_insert=1
+" バッファ一覧
+noremap <C-P> :Unite buffer<CR>
+" ファイル一覧
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" 最近使ったファイルの一覧
+noremap <C-Z> :Unite file_mru<CR>
+" sourcesを「今開いているファイルのディレクトリ」とする
+noremap :uff :<C-u>UniteWithBufferDir file -buffer-name=file<CR>
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
