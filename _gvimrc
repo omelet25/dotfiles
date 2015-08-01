@@ -13,7 +13,7 @@ color darkblue	"darkbule theme
 "
 
 "fontはローカル環境に従う
-"ファイルが無い場合はMS_Gothic
+"ファイルが無い場合はConsolasとMS_Gothic
 set guifont=Consolas:h12
 set guifontwide=MS_Gothic:h12
 if filereadable(expand('~/_vimfont'))
