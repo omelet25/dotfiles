@@ -24,7 +24,7 @@ NeoBundle 'Shougo/neosnippet-snippets',{
 			\ }
 
 NeoBundleLazy 'vim-jp/cpp-vim',{
-			\ 'autoload' : { 'filetypes' : ['cpp','c'] }
+			\ 'autoload' : { 'filetypes' : ['cpp','c','h'] }
 			\ }
 
 call neobundle#end()
@@ -105,8 +105,14 @@ let g:neocomplete#enable_at_startup = 1
 		let g:neocomplete#sources#omni#input_patterns = {}
 	endif
 	let g:neocomplete#keyword_patterns._ = '\h\w*'
+	if !exists('g:neocomplete#force_omni_input_patterns')
+		let g:neocomplete#force_omni_input_patterns = {}
+	endif
+	let g:neocomplete#force_omni_input_patterns.cpp =
+				\ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
-"neosnippet.vim settin
+"•âŠ®
+"neosnippet.vim setting
 "
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
