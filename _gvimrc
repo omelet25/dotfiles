@@ -2,9 +2,9 @@
 "
 
 "MENUの文字化けを直す
-source $VIMRUNTIME/delmenu.vim
-set langmenu=ja_jp.utf-8
-source $VIMRUNTIME/menu.vim
+"source $VIMRUNTIME/delmenu.vim
+"set langmenu=ja_jp.utf-8
+"source $VIMRUNTIME/menu.vim
 
 "カラースキーム
 color darkblue	"darkbule theme
